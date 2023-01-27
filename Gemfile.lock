@@ -3,6 +3,7 @@ GEM
   specs:
     ast (2.4.2)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     json (2.6.3)
     parallel (1.22.1)
     parser (3.2.0.0)
@@ -36,6 +37,12 @@ GEM
     rubocop-ast (1.24.1)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     unicode-display_width (2.4.2)
     url (0.3.2)
 
@@ -45,6 +52,7 @@ PLATFORMS
 DEPENDENCIES
   rspec
   rubocop
+  simplecov
   url
 
 BUNDLED WITH
