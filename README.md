@@ -24,8 +24,8 @@ builder.timezone = 'UTC'
 builder.log_groups = ['/aws/cloudtrail']
 
 # https://us-east-1.console.aws.amazon.com/cloudwatch/home?...
-builder.log_insights_url("fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 2")
+builder.log_insights_url("fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 20")
 ```
 The generated URL can be used to open the CloudWatch Insights page from a browser.
 
-<img width="80%" alt="Screen Shot 2023-01-28 at 19 11 34" src="https://user-images.githubusercontent.com/1632478/215260832-885365d6-7216-4ea7-9b4d-292787297f7d.png">
+<img width="80%" alt="Screen Shot 2023-01-29 at 1 41 47" src="https://user-images.githubusercontent.com/1632478/215278346-04dee994-be06-445e-b321-71ba6f60690d.png">
