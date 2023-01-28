@@ -3,7 +3,7 @@
 ![rspec](https://github.com/naomichi-y/cloudwatch_logs_url_builder/actions/workflows/rspec.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Generate AWS Console URL for Amazon CloudWatch.
+Generate AWS Console URL for Amazon CloudWatch Insights.
 
 ## Installation
 
