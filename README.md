@@ -7,7 +7,7 @@ Generate AWS Console URL for Amazon CloudWatch Insights.
 
 ## Installation
 
-```
+```ruby
 gem 'cloudwatch_logs_insights_url_builder'
 ```
 
