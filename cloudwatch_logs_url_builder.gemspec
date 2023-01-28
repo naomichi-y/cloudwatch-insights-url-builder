@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = 'cloudwatch_logs_url_builder'
-  spec.version       = '0.0.3'
+  spec.version       = '0.0.4'
   spec.authors       = ['naomichi-y']
   spec.email         = ['n.yamakita@gmail.com']
 

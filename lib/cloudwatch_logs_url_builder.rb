@@ -15,7 +15,7 @@ class CloudWatchLogsUrlBuilder
     @end_time = 0
   end
 
-  def log_insights_url(query, log_groups)
+  def log_insights_url(query, log_groups = [])
     url = +"https://#{@region}.console.aws.amazon.com/cloudwatch/home?region=#{@region}#logsV2:logs-insights"
     url << URI.encode_www_form_component('?queryDetail=').gsub('%', '$')
 
@@ -30,7 +30,7 @@ class CloudWatchLogsUrlBuilder
     builder.add('tz', @timezone)
     builder.add('editorString', query)
     builder.add('isLiveTail', false)
-    builder.add('source', log_groups)
+    builder.add('source', log_groups) if log_groups.size.positive?
 
     url << builder.build
     url
