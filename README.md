@@ -25,3 +25,6 @@ builder.log_groups = ['/aws/cloudtrail']
 # https://us-east-1.console.aws.amazon.com/cloudwatch/home?...
 builder.log_insights_url("fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 2")
 ```
+The generated URL can be used to open the CloudWatch Insights page from a browser.
+
+<img width="80%" alt="Screen Shot 2023-01-28 at 12 45 11" src="https://user-images.githubusercontent.com/1632478/215240546-417c523e-692f-47eb-8d01-ccca215d348b.png">
