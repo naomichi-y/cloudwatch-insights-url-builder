@@ -3,20 +3,20 @@ require './lib/cloudwatch_logs_insights_url_builder'
 describe CloudWatchLogsInsightsUrlBuilder do
   describe '#log_insights_url' do
     context 'when searching by absolute date' do
-      it 'should be returned URL' do
-        now = Time.now
-        start_time = now - 86_400
-        end_time = now
-
+      let(:now) { Time.now }
+      let(:start_time) { now - 86_400 }
+      let(:end_time) { now }
+      let(:url) do
         builder = CloudWatchLogsInsightsUrlBuilder.new('ap-northeast-1')
         builder.time_type = 'ABSOLUTE'
         builder.start_time = start_time
         builder.end_time = end_time
-        builder.log_groups =  ['/aws/cloudtrail']
-        url = builder.log_insights_url(
+        builder.log_groups = ['/aws/cloudtrail']
+        builder.log_insights_url(
           "fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 20"
         )
-
+      end
+      let(:expect_url) do
         expect_url = +'https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?'
         expect_url << 'region=ap-northeast-1#logsV2:logs-insights$3F'
         expect_url << 'queryDetail$3D$257E$2528'
@@ -28,21 +28,24 @@ describe CloudWatchLogsInsightsUrlBuilder do
         expect_url << 'isLiveTail$257Efalse$257E'
         expect_url << 'source$257E$2528$257E'
         expect_url << '$2527*2Faws*2Fcloudtrail$2529$2529'
+      end
 
+      it 'should be returned URL' do
         expect(url).to eq(expect_url)
       end
     end
 
     context 'when searching by relative date' do
       context 'when default condition' do
-        it 'should be returned URL' do
+        let(:url) do
           builder = CloudWatchLogsInsightsUrlBuilder.new('ap-northeast-1')
           builder.time_type = 'RELATIVE'
-          builder.log_groups =  ['/aws/cloudtrail']
-          url = builder.log_insights_url(
-            "fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 20",
+          builder.log_groups = ['/aws/cloudtrail']
+          builder.log_insights_url(
+            "fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 20"
           )
-
+        end
+        let(:expect_url) do
           expect_url = +'https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?'
           expect_url << 'region=ap-northeast-1#logsV2:logs-insights$3F'
           expect_url << 'queryDetail$3D$257E$2528'
@@ -55,25 +58,27 @@ describe CloudWatchLogsInsightsUrlBuilder do
           expect_url << 'isLiveTail$257Efalse$257E'
           expect_url << 'source$257E$2528$257E'
           expect_url << '$2527*2Faws*2Fcloudtrail$2529$2529'
+        end
 
+        it 'should be returned URL' do
           expect(url).to eq(expect_url)
         end
       end
 
       context 'when range is specified' do
-        it 'should be returned URL' do
-          start_time = -86_400
-          end_time = 0
-
+        let(:start_time) { -86_400 }
+        let(:end_time) { 0 }
+        let(:url) do
           builder = CloudWatchLogsInsightsUrlBuilder.new('ap-northeast-1')
           builder.time_type = 'RELATIVE'
           builder.start_time = start_time
           builder.end_time = end_time
-          builder.log_groups =  ['/aws/cloudtrail']
-          url = builder.log_insights_url(
+          builder.log_groups = ['/aws/cloudtrail']
+          builder.log_insights_url(
             "fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 20"
           )
-
+        end
+        let(:expect_url) do
           expect_url = +'https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?'
           expect_url << 'region=ap-northeast-1#logsV2:logs-insights$3F'
           expect_url << 'queryDetail$3D$257E$2528'
@@ -86,7 +91,9 @@ describe CloudWatchLogsInsightsUrlBuilder do
           expect_url << 'isLiveTail$257Efalse$257E'
           expect_url << 'source$257E$2528$257E'
           expect_url << '$2527*2Faws*2Fcloudtrail$2529$2529'
+        end
 
+        it 'should be returned URL' do
           expect(url).to eq(expect_url)
         end
       end

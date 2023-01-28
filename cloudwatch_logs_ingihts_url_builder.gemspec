@@ -5,7 +5,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['n.yamakita@gmail.com']
 
   spec.summary       = 'Generate AWS Console URL for Amazon CloudWatch Insights.'
-  spec.description   = 'Specify log groups and filters to generate CloudWatch Logs Insights URL accessible to the AWS Console.'
+
+  spec.description   = +'Specify log groups and filters to generate CloudWatch Logs Insights URL '
+  spec.description  << 'accessible to AWS Console.'
+
   spec.homepage      = 'https://github.com/naomichi-y/cloudwatch_logs_insights_url_builder'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.6.0')
 

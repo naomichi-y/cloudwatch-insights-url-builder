@@ -7,28 +7,28 @@ class CloudWatchLogsInsightsUrlBuilder
     def add(key, value)
       case value
       when Array
-        result = +encode_key("~#{key}~(")
+        result = +encode("~#{key}~(")
 
         value.each do |v|
-          result << "#{encode_key("~'")}#{encode_value(v)}"
+          result << "#{encode("~'")}#{encode_value(v)}"
         end
 
-        @conditions << result + encode_key(')')
+        @conditions << result + encode(')')
 
       when String
-        @conditions << "#{encode_key("~#{key}~'")}#{encode_value(value)}"
+        @conditions << "#{encode("~#{key}~'")}#{encode_value(value)}"
       else
-        @conditions << "#{encode_key("~#{key}~")}#{encode_value(value)}"
+        @conditions << "#{encode("~#{key}~")}#{encode_value(value)}"
       end
     end
 
     def build
-      "#{encode_key('~(')}#{@conditions.join.delete_prefix(encode_key('~'))}#{encode_key(')')}"
+      "#{encode('~(')}#{@conditions.join.delete_prefix(encode('~'))}#{encode(')')}"
     end
 
     private
 
-    def encode_key(key)
+    def encode(key)
       URI.encode_www_form_component(URI.encode_www_form_component(key)).gsub('%', '$')
     end
 
