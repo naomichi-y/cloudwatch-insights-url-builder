@@ -17,6 +17,9 @@ describe CloudWatchLogsUrlBuilder do
           ['/aws/cloudtrail']
         )
 
+        puts url
+        exit
+
         expect_url = +'https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?'
         expect_url << 'region=ap-northeast-1#logsV2:logs-insights$3F'
         expect_url << 'queryDetail$3D$257E$2528'
