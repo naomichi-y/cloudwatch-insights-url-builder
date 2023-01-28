@@ -13,7 +13,9 @@ gem 'cloudwatch-logs-url-builder'
 
 ## Usage
 
-```rubyy
+```ruby
+require 'cloudwatch-logs-url-builder'
+
 builder = CloudWatchLogsUrlBuilder.new('ap-northeast-1')
 builder.time_type = 'ABSOLUTE'
 builder.start_time = start_time
