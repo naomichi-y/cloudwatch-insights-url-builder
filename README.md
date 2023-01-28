@@ -16,8 +16,6 @@ gem 'cloudwatch_logs_insights_url_builder'
 ```ruby
 require 'cloudwatch_logs_insights_url_builder'
 
-now = Time.now
-
 builder = CloudWatchLogsInsightsUrlBuilder.new
 builder.time_type = 'ABSOLUTE'
 builder.start_time = Time.utc(2023, 1, 27, 0, 0, 0)
