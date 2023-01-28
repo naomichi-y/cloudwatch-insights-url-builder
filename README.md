@@ -16,10 +16,13 @@ gem 'cloudwatch_logs_insights_url_builder'
 ```ruby
 require 'cloudwatch_logs_insights_url_builder'
 
+now = Time.now
+
 builder = CloudWatchLogsInsightsUrlBuilder.new
 builder.time_type = 'ABSOLUTE'
-builder.start_time = - (24 * 3600)
-builder.end_time = 0
+builder.start_time = Time.utc(2023, 1, 27, 0, 0, 0)
+builder.end_time = Time.utc(2023, 1, 27, 23, 59, 59)
+builder.timezone = 'UTC'
 builder.log_groups = ['/aws/cloudtrail']
 
 # https://us-east-1.console.aws.amazon.com/cloudwatch/home?...
