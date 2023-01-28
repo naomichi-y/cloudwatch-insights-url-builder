@@ -6,7 +6,7 @@ class CloudWatchLogsInsightsUrlBuilder
 
   STRING_TIME_FORMAT = '%Y-%m-%dT%T.000Z'.freeze
 
-  def initialize(region)
+  def initialize(region = 'us-east-1')
     @region = region
     @time_type = 'RELATIVE'
     @timezone = 'Local'

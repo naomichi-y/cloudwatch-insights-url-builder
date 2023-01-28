@@ -18,7 +18,7 @@ require 'cloudwatch_logs_insights_url_builder'
 
 builder = CloudWatchLogsInsightsUrlBuilder.new
 builder.time_type = 'ABSOLUTE'
-builder.start_time = 24 * 3600
+builder.start_time = - (24 * 3600)
 builder.end_time = 0
 builder.log_groups = ['/aws/cloudtrail']
 
