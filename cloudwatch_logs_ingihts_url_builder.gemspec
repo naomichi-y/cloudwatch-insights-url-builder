@@ -1,12 +1,12 @@
 Gem::Specification.new do |spec|
-  spec.name          = 'cloudwatch_logs_url_builder'
-  spec.version       = '0.0.4'
+  spec.name          = 'cloudwatch_logs_insights_url_builder'
+  spec.version       = '0.0.1'
   spec.authors       = ['naomichi-y']
   spec.email         = ['n.yamakita@gmail.com']
 
   spec.summary       = 'Generate AWS Console URL for Amazon CloudWatch.'
   spec.description   = 'Specify log groups and filters to generate URLs accessible to the AWS Console.'
-  spec.homepage      = 'https://github.com/naomichi-y/cloudwatch_logs_url_builder'
+  spec.homepage      = 'https://github.com/naomichi-y/cloudwatch_logs_insights_url_builder'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.6.0')
 
   spec.metadata['homepage_uri'] = spec.homepage

@@ -1,6 +1,6 @@
-require './lib/cloudwatch_logs_url_builder'
+require './lib/cloudwatch_logs_insights_url_builder'
 
-describe CloudWatchLogsUrlBuilder do
+describe CloudWatchLogsInsightsUrlBuilder do
   describe '#log_insights_url' do
     context 'when searching by absolute date' do
       it 'should be returned URL' do
@@ -8,7 +8,7 @@ describe CloudWatchLogsUrlBuilder do
         start_time = now - 86_400
         end_time = now
 
-        builder = CloudWatchLogsUrlBuilder.new('ap-northeast-1')
+        builder = CloudWatchLogsInsightsUrlBuilder.new('ap-northeast-1')
         builder.time_type = 'ABSOLUTE'
         builder.start_time = start_time
         builder.end_time = end_time
@@ -39,7 +39,7 @@ describe CloudWatchLogsUrlBuilder do
     context 'when searching by relative date' do
       context 'when default condition' do
         it 'should be returned URL' do
-          builder = CloudWatchLogsUrlBuilder.new('ap-northeast-1')
+          builder = CloudWatchLogsInsightsUrlBuilder.new('ap-northeast-1')
           builder.time_type = 'RELATIVE'
           url = builder.log_insights_url(
             "fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 20",
@@ -68,7 +68,7 @@ describe CloudWatchLogsUrlBuilder do
           start_time = -86_400
           end_time = 0
 
-          builder = CloudWatchLogsUrlBuilder.new('ap-northeast-1')
+          builder = CloudWatchLogsInsightsUrlBuilder.new('ap-northeast-1')
           builder.time_type = 'RELATIVE'
           builder.start_time = start_time
           builder.end_time = end_time

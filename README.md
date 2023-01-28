@@ -8,15 +8,15 @@ Generate AWS Console URL for Amazon CloudWatch.
 ## Installation
 
 ```
-gem 'cloudwatch_logs_url_builder'
+gem 'cloudwatch_logs_insights_url_builder'
 ```
 
 ## Usage
 
 ```ruby
-require 'cloudwatch_logs_url_builder'
+require 'cloudwatch_logs_insights_url_builder'
 
-builder = CloudWatchLogsUrlBuilder.new
+builder = CloudWatchLogsInsightsUrlBuilder.new
 builder.time_type = 'ABSOLUTE'
 builder.start_time = 24 * 3600
 builder.end_time = 0

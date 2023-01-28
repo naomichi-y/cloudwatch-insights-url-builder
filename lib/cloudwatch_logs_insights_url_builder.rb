@@ -1,7 +1,7 @@
 require 'url'
-require 'cloudwatch_logs_url_builder/criteria'
+require 'cloudwatch_logs_insights_url_builder/criteria'
 
-class CloudWatchLogsUrlBuilder
+class CloudWatchLogsInsightsUrlBuilder
   attr_accessor :time_type, :timezone, :start_time, :end_time
 
   STRING_TIME_FORMAT = '%Y-%m-%dT%T.000Z'.freeze
@@ -22,7 +22,7 @@ class CloudWatchLogsUrlBuilder
     start_time = @start_time.is_a?(Time) ? @start_time.strftime(STRING_TIME_FORMAT) : @start_time
     end_time = @end_time.is_a?(Time) ? @end_time.strftime(STRING_TIME_FORMAT) : @end_time
 
-    builder = CloudWatchLogsUrlBuilder::Criteria.new
+    builder = CloudWatchLogsInsightsUrlBuilder::Criteria.new
     builder.add('end', end_time)
     builder.add('start', start_time)
     builder.add('timeType', @time_type)

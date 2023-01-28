@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cloudwatch_logs_url_builder (0.0.4)
+    cloudwatch_logs_insights_url_builder (0.0.4)
       url
 
 GEM
@@ -57,7 +57,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cloudwatch_logs_url_builder!
+  cloudwatch_logs_insights_url_builder!
   rake
   rspec
   rubocop

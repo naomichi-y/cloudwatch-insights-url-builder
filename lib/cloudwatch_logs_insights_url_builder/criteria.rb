@@ -1,4 +1,4 @@
-class CloudWatchLogsUrlBuilder
+class CloudWatchLogsInsightsUrlBuilder
   class Criteria
     def initialize
       @conditions = []
