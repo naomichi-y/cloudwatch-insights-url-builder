@@ -20,10 +20,8 @@ builder = CloudWatchLogsInsightsUrlBuilder.new
 builder.time_type = 'ABSOLUTE'
 builder.start_time = 24 * 3600
 builder.end_time = 0
-
-query = 'fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 2'
-log_groups = ['/aws/cloudtrail']
+builder.log_groups = ['/aws/cloudtrail']
 
 # https://us-east-1.console.aws.amazon.com/cloudwatch/home?...
-builder.log_insights_url(query, log_groups)
+builder.log_insights_url('fields @timestamp, @message, @logStream, @log\n| sort @timestamp desc\n| limit 2')
 ```

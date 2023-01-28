@@ -2,7 +2,7 @@ require 'url'
 require 'cloudwatch_logs_insights_url_builder/criteria'
 
 class CloudWatchLogsInsightsUrlBuilder
-  attr_accessor :time_type, :timezone, :start_time, :end_time
+  attr_accessor :time_type, :timezone, :start_time, :end_time, :log_groups
 
   STRING_TIME_FORMAT = '%Y-%m-%dT%T.000Z'.freeze
 
@@ -13,9 +13,10 @@ class CloudWatchLogsInsightsUrlBuilder
     @unit = 'minutes'
     @start_time = -86_400
     @end_time = 0
+    @log_groups = []
   end
 
-  def log_insights_url(query, log_groups = [])
+  def log_insights_url(query)
     url = +"https://#{@region}.console.aws.amazon.com/cloudwatch/home?region=#{@region}#logsV2:logs-insights"
     url << URI.encode_www_form_component('?queryDetail=').gsub('%', '$')
 
@@ -30,7 +31,7 @@ class CloudWatchLogsInsightsUrlBuilder
     builder.add('tz', @timezone)
     builder.add('editorString', query)
     builder.add('isLiveTail', false)
-    builder.add('source', log_groups) if log_groups.size.positive?
+    builder.add('source', @log_groups) if @log_groups.size.positive?
 
     url << builder.build
     url
