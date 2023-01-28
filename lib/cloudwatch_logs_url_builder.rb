@@ -1,5 +1,5 @@
 require 'url'
-require './lib/cloudwatch_logs_url_builder/criteria'
+require 'cloudwatch_logs_url_builder/criteria'
 
 class CloudWatchLogsUrlBuilder
   attr_accessor :time_type, :timezone, :start_time, :end_time
