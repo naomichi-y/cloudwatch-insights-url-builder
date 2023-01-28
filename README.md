@@ -18,8 +18,8 @@ require 'cloudwatch_logs_url_builder'
 
 builder = CloudWatchLogsUrlBuilder.new('ap-northeast-1')
 builder.time_type = 'ABSOLUTE'
-builder.start_time = start_time
-builder.end_time = end_time
+builder.start_time = 24 * 3600
+builder.end_time = 0
 
 # https://ap-northeast-1.console.aws.amazon.com/cloudwatch/home?...
 builder.log_insights_url(
