@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cloudwatch_logs_insights_url_builder (0.0.6)
+    cloudwatch_logs_insights_url_builder (0.0.7)
       url
 
 GEM
@@ -55,6 +55,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   cloudwatch_logs_insights_url_builder!
